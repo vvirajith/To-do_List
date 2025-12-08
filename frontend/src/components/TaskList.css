@@ -1,0 +1,37 @@
+.task-list-container {
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    min-height: 400px;
+}
+
+.task-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.loading {
+    text-align: center;
+    padding: 40px;
+    color: #666;
+    font-size: 16px;
+}
+
+.no-tasks {
+    text-align: center;
+    padding: 60px 20px;
+    color: #666;
+}
+
+.no-tasks p {
+    margin: 0;
+    font-size: 18px;
+}
+
+.no-tasks-subtitle {
+    font-size: 14px;
+    color: #999;
+    margin-top: 8px !important;
+}

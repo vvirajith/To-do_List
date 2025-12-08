@@ -1,0 +1,58 @@
+.task-card {
+    background-color: #d3d3d3;
+    border-radius: 8px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.task-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.task-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.task-title {
+    margin: 0 0 8px 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: #000;
+}
+
+.task-description {
+    margin: 0;
+    font-size: 14px;
+    color: #333;
+    line-height: 1.5;
+}
+
+.done-button {
+    background-color: white;
+    color: #333;
+    border: 1px solid #999;
+    padding: 8px 24px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+    min-width: 80px;
+}
+
+.done-button:hover:not(:disabled) {
+    background-color: #f0f0f0;
+    border-color: #666;
+}
+
+.done-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
