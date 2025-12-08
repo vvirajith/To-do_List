@@ -1,7 +1,6 @@
 const { pool } = require('../config/database');
 
 class TaskModel {
-    // Create a new task
     static async create(title, description) {
         try {
             const [result] = await pool.query(
@@ -14,7 +13,6 @@ class TaskModel {
         }
     }
 
-    // Get recent uncompleted tasks (limit 5)
     static async getRecentTasks(limit = 5) {
         try {
             const [rows] = await pool.query(
@@ -27,7 +25,6 @@ class TaskModel {
         }
     }
 
-    // Get task by ID
     static async getById(id) {
         try {
             const [rows] = await pool.query(
@@ -40,7 +37,6 @@ class TaskModel {
         }
     }
 
-    // Mark task as completed
     static async markAsCompleted(id) {
         try {
             const [result] = await pool.query(
@@ -53,7 +49,6 @@ class TaskModel {
         }
     }
 
-    // Delete all tasks (useful for testing)
     static async deleteAll() {
         try {
             await pool.query('DELETE FROM task');

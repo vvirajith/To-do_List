@@ -4,7 +4,6 @@ const { testConnection } = require('./src/config/database');
 
 const PORT = process.env.PORT || 5000;
 
-// Wait for database connection before starting server
 const startServer = async () => {
     let retries = 5;
     
@@ -20,7 +19,7 @@ const startServer = async () => {
         }
         
         retries -= 1;
-        console.log(`⏳ Retrying database connection... (${retries} attempts left)`);
+        console.log(`Retrying database connection... (${retries} attempts left)`);
         await new Promise(resolve => setTimeout(resolve, 5000));
     }
     

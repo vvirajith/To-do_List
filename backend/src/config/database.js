@@ -17,11 +17,9 @@ const promisePool = pool.promise();
 const testConnection = async () => {
     try {
         const connection = await promisePool.getConnection();
-        console.log('Database connected successfully');
         connection.release();
         return true;
     } catch (error) {
-        console.error('Database connection failed:', error.message);
         return false;
     }
 };
