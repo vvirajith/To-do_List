@@ -9,7 +9,6 @@ const api = axios.create({
     },
 });
 
-// Create a new task
 export const createTask = async (title, description) => {
     try {
         const response = await api.post('/tasks', { title, description });
@@ -19,7 +18,6 @@ export const createTask = async (title, description) => {
     }
 };
 
-// Get all tasks
 export const getTasks = async () => {
     try {
         const response = await api.get('/tasks');
@@ -29,7 +27,6 @@ export const getTasks = async () => {
     }
 };
 
-// Mark task as completed
 export const completeTask = async (id) => {
     try {
         const response = await api.put(`/tasks/${id}/complete`);

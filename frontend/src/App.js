@@ -8,8 +8,8 @@ function App() {
     const [tasks, setTasks] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState('');
+    const [success, setSuccess] = useState('');
 
-    // Fetch tasks on component mount
     useEffect(() => {
         fetchTasks();
     }, []);
@@ -31,7 +31,6 @@ function App() {
     const handleTaskAdded = async (title, description) => {
         try {
             await createTask(title, description);
-            // Refresh task list
             await fetchTasks();
         } catch (err) {
             throw new Error(err.message || 'Failed to create task');
@@ -41,10 +40,13 @@ function App() {
     const handleTaskComplete = async (id) => {
         try {
             await completeTask(id);
-            // Remove task from list immediately
             setTasks(tasks.filter(task => task.id !== id));
-            // Refresh to get next task if available
             await fetchTasks();
+            
+            setSuccess('Task Completed');
+            setTimeout(() => {
+                setSuccess('');
+            }, 3000);
         } catch (err) {
             console.error('Error completing task:', err);
             throw err;
@@ -62,6 +64,7 @@ function App() {
                 
                 <div className="right-section">
                     {error && <div className="error-banner">{error}</div>}
+                    {success && <div className="success-banner">{success}</div>}
                     <TaskList 
                         tasks={tasks} 
                         onComplete={handleTaskComplete}

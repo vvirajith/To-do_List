@@ -1,17 +1,18 @@
 .task-card {
-    background-color: #d3d3d3;
-    border-radius: 8px;
-    padding: 20px;
+    background: linear-gradient(135deg, #e8e8e8 0%, #d0d0d0 100%);
+    border-radius: 12px;
+    padding: 24px 26px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 20px;
-    transition: transform 0.2s, box-shadow 0.2s;
+    gap: 24px;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
 }
 
 .task-card:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.12);
 }
 
 .task-content {
@@ -20,39 +21,50 @@
 }
 
 .task-title {
-    margin: 0 0 8px 0;
-    font-size: 18px;
-    font-weight: 600;
-    color: #000;
+    margin: 0 0 10px 0;
+    font-size: 20px;
+    font-weight: 700;
+    color: #1a1a1a;
+    letter-spacing: -0.2px;
 }
 
 .task-description {
     margin: 0;
-    font-size: 14px;
-    color: #333;
-    line-height: 1.5;
+    font-size: 15px;
+    color: #4a4a4a;
+    line-height: 1.6;
+    font-weight: 400;
 }
 
 .done-button {
-    background-color: white;
-    color: #333;
-    border: 1px solid #999;
-    padding: 8px 24px;
-    border-radius: 6px;
-    font-size: 14px;
-    font-weight: 500;
+    background-color: #ffffff;
+    color: #333333;
+    border: 2px solid #999999;
+    padding: 10px 28px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
     cursor: pointer;
-    transition: all 0.2s;
+    transition: all 0.2s ease;
     white-space: nowrap;
-    min-width: 80px;
+    min-width: 90px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .done-button:hover:not(:disabled) {
-    background-color: #f0f0f0;
-    border-color: #666;
+    background-color: #f5f5f5;
+    border-color: #666666;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.done-button:active:not(:disabled) {
+    transform: translateY(0);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .done-button:disabled {
-    opacity: 0.6;
+    opacity: 0.5;
     cursor: not-allowed;
+    transform: none;
 }

@@ -6,11 +6,11 @@ const TaskForm = ({ onTaskAdded }) => {
     const [description, setDescription] = useState('');
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [error, setError] = useState('');
+    const [success, setSuccess] = useState('');
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         
-        // Validation
         if (!title.trim()) {
             setError('Title is required');
             return;
@@ -18,12 +18,17 @@ const TaskForm = ({ onTaskAdded }) => {
 
         setIsSubmitting(true);
         setError('');
+        setSuccess('');
 
         try {
             await onTaskAdded(title, description);
-            // Clear form on success
             setTitle('');
             setDescription('');
+            setSuccess('Task Added Successfully');
+            
+            setTimeout(() => {
+                setSuccess('');
+            }, 3000);
         } catch (err) {
             setError(err.message || 'Failed to create task');
         } finally {
@@ -60,6 +65,7 @@ const TaskForm = ({ onTaskAdded }) => {
                 </div>
 
                 {error && <div className="error-message">{error}</div>}
+                {success && <div className="success-message">{success}</div>}
 
                 <button 
                     type="submit" 
